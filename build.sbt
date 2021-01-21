@@ -25,6 +25,8 @@ libraryDependencies ++= Seq(
   "com.github.alexarchambault" %% "scalacheck-shapeless_1.14"   % "1.2.5"  % Test
 )
 
+addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full)
+
 testFrameworks += new TestFramework("utest.runner.Framework")
 
 val wartsExcludes = Seq(
@@ -90,3 +92,5 @@ scalacOptions ++= Seq(
   // not necessary since catched by wartremover and can be more fine-tuned,
   // I am using silencer because of
 )
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
